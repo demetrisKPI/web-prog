@@ -11,13 +11,13 @@ class Merch extends Component {
 	}
 	handleClick = e => {
 		let tmp = this.props.basket;
-		if (+(e.currentTarget.id) !== 0) tmp.push(+(e.currentTarget.id));
+		if (e.currentTarget.id) tmp.push(+(e.currentTarget.id));
 		this.props.purchaseItem(tmp);
 		e.currentTarget.disabled = true;
 	}
 	renderItemList() {
 		const { filterlist, search, itemlist } = this.props;
-		console.log(itemlist);
+
 		return (
 			<div className='list'>
 				{itemlist ? itemlist.data.map(key => {

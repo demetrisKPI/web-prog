@@ -18,7 +18,6 @@ db
 
 
 app.use('/itemlist', require('./database').router);
-
 app.use(express.static('client/build'));
 
 app.get('*', (req, res) => {

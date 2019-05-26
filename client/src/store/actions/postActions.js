@@ -68,7 +68,6 @@ export const fetchMerchList = () => dispatch => {
     axios
         .get(`/itemlist/`)
         .then(res => {
-			console.log(res);
 			dispatch({
 				type: FETCH_MERCHLIST,
 				payload: res
@@ -77,7 +76,7 @@ export const fetchMerchList = () => dispatch => {
 
 export const postNewItem = obj => dispatch => {
     axios
-        .post(`/post-item`, obj)
+        .post(`/itemlist/post-item`, obj)
         .then(res => dispatch({
             type: POST_NEW_ITEM,
             payload: res
