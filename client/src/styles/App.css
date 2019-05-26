@@ -1,0 +1,99 @@
+.body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+div, p, input, button, a{
+	box-sizing: border-box;
+}
+
+.logo {
+    margin: 0 auto;
+    padding: 10px 10px 10px 6px;
+}
+
+.other {
+    display:flex;
+}
+
+.entire {
+    margin-right: 30px;
+}
+
+.search {
+    margin: 5px 40px 0px 10px;
+}
+
+.check {
+    margin: 5px;
+}
+
+.head {
+    padding: 9px 9px 0px 9px;
+}
+
+.merchlist {
+    width: 80%;
+    margin-top: 2px;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.items {
+    max-width: 28vh;
+    max-height: 48vh;
+    margin: 0px 32px 20px 5px;
+    box-sizing: border-box;
+}
+
+.merchlist:hover .items {
+    transition: .4s;
+}
+
+.merchlist .items:hover {
+    transform: scale(1.1);
+}
+
+.purchase {
+    display: none;
+}
+
+.items:hover .purchase {
+    display: block;
+    position: absolute;
+}
+
+.delete {
+    padding-left: 12px;
+}
+
+.footer {
+    padding: 100px 50px 100px 50px;
+    margin: 50px;
+}
+
+.list {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.poster {
+    margin: 50px 5% 10px 5%;
+}
+
+.pad {
+    padding: 15px; 
+    font-size: 20px;   
+}
+
+.mini {
+    display: flex;
+    justify-content: center;
+}
+.butt {
+    padding: 0;
+    margin: 0;
+}
