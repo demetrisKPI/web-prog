@@ -16,35 +16,36 @@ class Merch extends Component {
 		e.currentTarget.disabled = true;
 	}
 	renderItemList() {
-		const { filterlist, itemlist, search } = this.props;
+		const { filterlist, search, itemlist } = this.props;
 		console.log(itemlist);
-		return ( 
+		return (
 			<div className='list'>
-				{itemlist.map(key => {
+				{itemlist ? itemlist.data.map(key => {
 					if (Array(key.name).filter(el => (el.toLowerCase().indexOf(search.toLowerCase()) > -1)).length) {
-						if ((!filterlist.clothes && 
-							!filterlist.devices && 
+						if ((!filterlist.clothes &&
+							!filterlist.devices &&
 							!filterlist.household) ||
 							filterlist[key.category]) {
 							return (
 								<div key={key.id} className='items'>
 									<Card>
-										<Image as='img' src={key.source} className='image'/>
+										<Image as='img' src={key.source} className='image' />
 										<Card.Content>
-											<Card.Header content={key.name}/>
-											<Card.Meta content={key.price}/>
-											<Card.Description content={key.description}/>
+											<Card.Header content={key.name} />
+											<Card.Meta content={key.price} />
+											<Card.Description content={key.description} />
 										</Card.Content>
 										<Card.Content className='purchase' extra>
-											<Button color='violet' id={key.id} icon='cart' content='Purchase' onClick={this.handleClick}/>
+											<Button color='violet' id={key.id} icon='cart' content='Purchase' onClick={this.handleClick} />
 										</Card.Content>
 									</Card>
 								</div>
-							); 
+							);
 						}
-					}})
-				}</div>
-			);
+					}
+				}) : ''}
+			</div>
+		);
 	}
 	render() {
 		return (
@@ -54,11 +55,11 @@ class Merch extends Component {
 		);
 	}
 }
- 
+
 export default connect(
 	state => ({
 		search: state.active.search,
-		itemlist: state.active.itemlist,
+		itemlist: state.active.itemlist.data,
 		filterlist: state.active.filterlist,
 		basket: state.active.basket
 	}),

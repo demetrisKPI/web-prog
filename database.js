@@ -3,13 +3,13 @@
 const Sequelize = require('sequelize');
 const router = require('express').Router();
 
-const db = new Sequelize('web-prog', 'postgres', '1234', {
+const db = new Sequelize('webprog', 'postgresuser', '1234', {
     host: 'localhost',
     dialect: 'postgres',
     logging: false
 });
 
-db.define('itemlist', {
+const itemList = db.define('itemlist', {
     name: {
         type: Sequelize.STRING,
         unique: true
@@ -27,11 +27,11 @@ db.define('itemlist', {
         type: Sequelize.STRING
     }
 })
-console.log(db);
+
 router.get('/', (req, res) => {
-    db
+    itemList
         .findAll()
-        .then(itemlist => res.json(itemlist))
+        .then(data => res.json({ data }))
         .catch(err => console.log(err))
 });
 
